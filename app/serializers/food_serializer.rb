@@ -1,3 +1,3 @@
 class FoodSerializer < ActiveModel::Serializer
-  attributes :id, :name, :portion_size, :calories, :protein, :fat, :carbohydrates, :food_group
+  attributes :id, :name, :kcal_per_g
 end

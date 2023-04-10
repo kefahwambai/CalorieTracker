@@ -1,4 +1,5 @@
 class FoodsController < ApplicationController
+
     def index
         foods = Food.all
         render json: foods
@@ -22,10 +23,10 @@ class FoodsController < ApplicationController
     
     def destroy
         foods = Food.find(params[:id])
-        if activities.destroy
-            render json: { message: "Activity deleted successfully" }
+        if foods.destroy
+            render json: { message: "Food deleted successfully" }
         else
-            render json: { error: "Failed to delete Activity!" }, status: :unprocessable_entity
+            render json: { error: "Failed to delete Foods!" }, status: :unprocessable_entity
         end
     end
 
