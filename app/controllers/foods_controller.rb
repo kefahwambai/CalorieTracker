@@ -22,13 +22,14 @@ class FoodsController < ApplicationController
     end
     
     def destroy
-        foods = Food.find(params[:id])
-        if foods.destroy
-            render json: { message: "Food deleted successfully" }
+        food = Food.find_by(id: params[:id])
+        if food && food.destroy
+          render json: { message: "Food deleted successfully" }
         else
-            render json: { error: "Failed to delete Foods!" }, status: :unprocessable_entity
+          render json: { error: "Failed to delete food" }, status: :unprocessable_entity
         end
     end
+      
 
     private
 
