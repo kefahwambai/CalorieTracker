@@ -1,9 +1,9 @@
 class UsersController < ApplicationController
   
-    skip_before_action :authorized_user, only: [:create, :index]
-    wrap_parameters format: []
-    rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
-    rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
+    # skip_before_action :authorized_user, only: [:create, :index]
+    # wrap_parameters format: []
+    # rescue_from ActiveRecord::RecordNotFound, with: :render_not_found_response
+    # rescue_from ActiveRecord::RecordInvalid, with: :render_unprocessable_entity_response
   
     def index
       render json: User.all, include: :activities, status: :ok
@@ -37,12 +37,12 @@ class UsersController < ApplicationController
       params.permit(:username, :email, :password, :password_confirmation)
     end
   
-    def render_not_found_response
-      render json: { errors: 'User not found' }, status: :not_found
-    end
+    # def render_not_found_response
+    #   render json: { errors: 'User not found' }, status: :not_found
+    # end
   
-    def render_unprocessable_entity_response(invalid)
-      render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
-    end
+    # def render_unprocessable_entity_response(invalid)
+    #   render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
+    # end
   end
   
