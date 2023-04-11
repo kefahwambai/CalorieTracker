@@ -1,8 +1,9 @@
 class GoalsController < ApplicationController
+
     def index
-        goals = Goal.all
+        goals = Goal.where(user_id: params[:user_id])
         render json: goals
-    end
+    end      
     
     def show
         goals = Goal.find(params[:id])
@@ -32,6 +33,6 @@ class GoalsController < ApplicationController
     private
 
     def goals_params
-        params.permit(:uer_id, :target_weight, :goal_date, :progress)
+        params.permit(:user_id, :target_weight, :goal_date, :progress)
     end
 end
