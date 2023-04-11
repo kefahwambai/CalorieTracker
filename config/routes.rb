@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   delete '/logout', to: 'sessions#destroy'
   get '/me', to: 'users#show'  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  match '*path', to: 'cors#preflight', via: [:options]
 
   # Defines the root path route ("/")
   # root "articles#index"
