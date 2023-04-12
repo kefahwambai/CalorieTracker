@@ -31,12 +31,11 @@ class ConsumptionsController < ApplicationController
 
     private
 
+    
     def consumption_params
-        params.permit(:user_id, food_ids: [], quantities: [], :consumed_at)
+        params.permit(:user_id, food_ids: [], quantity: [], :consumed_at, :total_calories)
     end
-    def consumption_params
-        params.permit(:user_id, food_ids: [], quantities: [], :consumed_at, :total_calories)
-    end
+      
       
       
 end
