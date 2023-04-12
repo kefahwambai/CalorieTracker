@@ -33,8 +33,9 @@ class ConsumptionsController < ApplicationController
 
     
     def consumption_params
-        params.permit(:user_id, food_ids: [], quantity: [], :consumed_at, :total_calories)
-    end
+        params.permit(:user_id, food_ids: [], quantity: [], consumed_at: [], total_calories: [])
+      end
+      
       
       
       
