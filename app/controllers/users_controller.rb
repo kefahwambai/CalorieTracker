@@ -75,7 +75,7 @@ class UsersController < ApplicationController
     else
         render json: { error: review.errors.full_messages }, status: :unprocessable_entity
     end
-   end
+  end
 
     
   
@@ -91,7 +91,7 @@ class UsersController < ApplicationController
   private
   
   def user_params
-    params.permit(:username, :firstname, :lastname, :email, :password, :age, :weight :height, :password_confirmation)
+    params.permit(:username, :firstname, :lastname, :email, :password, :age, :weight, :height, :password_confirmation)
   end
   
  
